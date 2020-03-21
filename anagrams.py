@@ -30,11 +30,10 @@ def find_anagrams(words):
 
     anagrams = {}
     for word in words:
-        v = alphabetize(word)
-        if word not in anagrams:
-            anagrams[v] = word
+        if ''.join(sorted(word)) in anagrams:
+            anagrams[''.join(sorted(word))] += [word]
         else:
-            anagrams[v].append(word)
+            anagrams[''.join(sorted(word))] = [word]
     return anagrams
 
 
